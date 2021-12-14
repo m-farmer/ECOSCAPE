@@ -3,6 +3,7 @@ import './App.css';
 import React, { useRef, useEffect } from 'react';
 import { select } from 'd3';
 import LineChart from "./LineChart";
+import Map from './Map'
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
        <LineChart />
+       <Map />
 
       </header>
 
