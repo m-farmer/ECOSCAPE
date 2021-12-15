@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import mapboxgl from 'mapbox-gl'
-import ReactMapGL, {Marker} from 'react-map-gl';
+import ReactMapGL, { Marker, Layer, Source } from 'react-map-gl';
 
 const MAP_KEY = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -20,6 +20,7 @@ export default function Map() {
   })
 
 
+
   useEffect(() => {
     fetch(binLocations)
     .then(response => response.json())
@@ -28,18 +29,29 @@ export default function Map() {
   },[])
 
 
+  // this is to prevent a slowdown in performance --> bins only rerender if there is a change in the data itself
+  // also need to account for the fact that bins is undefined when the component first mounts
+  const markers = useMemo(() =>
+  bins.features ?
+  bins.features.map (
+    bin => (
+      <Marker
+        longitude={+bin.properties.longitude}
+        latitude={+bin.properties.latitude}
+        offsetLeft={-20}
+        offsetTop={-10}
+      >
+        <img src='/recycleBin.svg' alt = 'R' width='20px'/>
+      </Marker>
+    )
+  )
+  : (<div />), [bins])
 
-  console.log('bins', bins)
-  console.log('bins.features', bins.features)
-  console.log('typeof bins.features', typeof bins.features)
 
-  if (bins.features) {
-    bins.features.forEach(bin => console.log(bin.properties))
-  }
+
 
   return (
     <div>
-
       <ReactMapGL
       {...viewport}
       mapboxApiAccessToken={MAP_KEY}
@@ -49,30 +61,7 @@ export default function Map() {
         setViewport(viewport);
       }}
       >
-
-      {
-        !bins.features ?
-
-          <div></div>
-          :
-
-
-        bins.features.map(bin => (
-          <Marker
-            latitude={+bin.properties.latitude}
-            longitude={+bin.properties.longitude}
-          >
-
-            <img
-            src='/recycleBin.svg'
-            alt = 'R'
-            width='2%'
-            ></img>
-          </Marker>
-        ))
-
-      }
-
+      { markers }
       </ReactMapGL>
     </div>
   )
