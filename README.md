@@ -5,9 +5,9 @@ A simple map visualization of the public recycling bins in New York City and the
 ## Dependencies
 
 `npm install d3 `
-`npm install mapbox-gl --save`
-`npm install react-dotenv`
-`npm install --save react-map-gl`
+`mapbox-gl --save`
+`react-dotenv`
+`--save react-map-gl`
 
 ## to run
 `npm start`
