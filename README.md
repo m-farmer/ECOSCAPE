@@ -1,5 +1,8 @@
 # Ecoscape
 
+![ECOSCAPE_COVER](https://user-images.githubusercontent.com/43537116/146384092-35a3b680-1f7c-4197-aa6e-3f9dc7df59ef.jpg)
+
+
 A simple map visualization of the public recycling bins in New York City and their proximity to certain neighborhoods. 
 
 ## Dependencies
