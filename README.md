@@ -8,10 +8,10 @@ A simple map visualization of the public recycling bins in New York City and the
 
 ## Dependencies
 
-`npm install d3 `
-`mapbox-gl --save`
-`react-dotenv`
-`--save react-map-gl`
+`npm install d3 ` <br />
+`mapbox-gl --save` <br />
+`react-dotenv` <br />
+`--save react-map-gl` <br />
 
 ## to run
 `npm start`
@@ -30,6 +30,6 @@ It is important that, if using React, any access token saved in a .env file be n
 Data was fetched from NYC Open Data API endpoints (geoJSON format) with useEffect hooks. 
 
 Be sure to include the link to the Mapbox stylesheet in <head> of index.html: 
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+'https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'
   
   
