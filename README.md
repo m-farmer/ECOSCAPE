@@ -6,11 +6,8 @@
 
 A simple map visualization of the public recycling bins in New York City and their proximity to certain neighborhoods. 
 
-## Dependencies
-
-`npm install ` <br />
-
 ## to run
+`npm install ` <br />
 `npm start`
 
 Runs the app in the development mode.\
